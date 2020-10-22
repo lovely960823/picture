@@ -1,0 +1,139 @@
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('icons/le_new.png') no-repeat center center;
+}
+.icon-shuaxin{
+	background:url('icons/ic_shuaxin.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons/le_edit.png') no-repeat center center;
+}
+.icon-dayin{
+	background:url('icons/ic_dayin.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('icons/le_delete.png') no-repeat center center;
+}
+.icon-save{
+	background:url('icons/le_save.png') no-repeat center center;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('icons/le_reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('icons/le_search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;
+}
+
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-put{
+	background:url('icons/le_basket_put.png') no-repeat center center;
+}
+.icon-putout{
+	background:url('icons/le_basket_remove.png') no-repeat center center;
+}
+.icon-comturn{
+	background:url('icons/comturn.png') no-repeat center center;
+}
+.icon-exit{
+	background:url('icons/exit.png') no-repeat center center;
+}
+.icon-le-ok{
+	background:url('icons/le-ok.png') no-repeat center center;
+}
+.icon-le-back{
+	background:url('icons/le-back.png') no-repeat center center;
+}
+/*update-begin--author:zhangjiaqiang date:20170301 for:锟睫讹拷锟叫憋拷图锟斤拷 */
+.icon-user-set-o{
+	background:url('icons/user-set-o.png') no-repeat center center;
+}
+
+.icon-user-set{
+	background:url('icons/user-set.png') no-repeat center center;
+}
+/*update-begin--author:LiShaoQing date:20171027 for:楂樼骇鏌ヨ娣诲姞鍙充晶鍘嗗彶鏁版嵁鍥炬爣  */
+.icon-history-search {
+  	background:url('icons/tree_historySearch.png') no-repeat center center;
+}
+/*update-end--author:LiShaoQing date:20171027 for:楂樼骇鏌ヨ娣诲姞鍙充晶鍘嗗彶鏁版嵁鍥炬爣  */
+/*update-end--author:zhangjiaqiang date:20170301 for:锟睫讹拷锟叫憋拷图锟斤拷 */
+/*update-begin author:xuelin date:20171116 for:TASK #2404 銆愬钩鍙癠I鏀归�銆慤I鏍峰紡鏀归�鐐� 5.鍙傝�fineui锛屽仛涓嬪瓧娈佃繃婊ゅ姛鑳芥晥鏋�----*/
+.icon-filter{
+	background:url('icons/filter.png') no-repeat center center;
+}
+/*update-end author:xuelin date:20171116 for:TASK #2404 銆愬钩鍙癠I鏀归�銆慤I鏍峰紡鏀归�鐐� 5.鍙傝�fineui锛屽仛涓嬪瓧娈佃繃婊ゅ姛鑳芥晥鏋�----*/
+/*update-begin-Author:LiShaoQing date:20180103 for:缁勭粐鏈烘瀯娣诲姞鑱屽姟淇℃伅鍥炬爣  */
+.icon-chart-organisation {
+  	background:url('icons/chart_organisation.png') no-repeat center center;
+}
+/*update-end-Author:LiShaoQing date:20180103 for:缁勭粐鏈烘瀯娣诲姞鑱屽姟淇℃伅鍥炬爣  */
+
+.icon-caret-down{
+	background:url('icons/fa-caret-down.png') no-repeat center center;
+}
+
+.icon-tijiao{
+	background:url('icons/ic_tijiao.png') no-repeat center center;
+}
+.icon-tijiaojiaohu{
+	background:url('icons/ic_tijiaojiaohu.png') no-repeat center center;
+}
+.icon-bohui{
+	background:url('icons/ic_bohui.png') no-repeat center center;
+}
+.icon-bohuijiaohu{
+	background:url('icons/ic_bohuijiaohu.png') no-repeat center center;
+}
+.icon-shenpi{
+	background:url('icons/ic_shenpi.png') no-repeat center center;
+}
+.icon-shenpijiaohu{
+	background:url('icons/ic_shenpijiaohu.png') no-repeat center center;
+}
+.icon-shuzhankai{
+	background:url('icons/shuzhankai.png') no-repeat center center;
+}
