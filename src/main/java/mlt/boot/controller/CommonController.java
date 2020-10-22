@@ -386,6 +386,7 @@ public class CommonController {
 	public String toupdatefolder(String id,HttpServletRequest request){
 		Menu menu = menuMapper.findPidById(id);
 		request.setAttribute("menu", menu);
+		request.setAttribute("pid", menu.getPId());
 		return "common/avatar";
 	}
 	/**
