@@ -1,5 +1,7 @@
 package mlt.boot.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +22,16 @@ import com.github.pagehelper.PageInfo;
 import mlt.boot.entity.Menu;
 import mlt.boot.mapper.MenuMapper;
 import mlt.boot.result.Result;
+import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 public class TeacherController {
 
 	@Autowired
 	MenuMapper menuMapper;
+	
+	@Autowired
+	private Environment env;//图片存储位置
 	
 	
 	/**
@@ -59,10 +66,11 @@ public class TeacherController {
 	 * @param request
 	 * @param id
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping("/teacher/list")
 	@ResponseBody
-	public Result<PageInfo<Menu>> liu(HttpServletRequest request,String id,String searchName,Integer page){
+	public Result<PageInfo<Menu>> liu(HttpServletRequest request,String id,String searchName,Integer page) throws IOException{
 		/**
 		 * 使用分页修改为流式加载 每次加载20条 2020年10月10日16:02:30 ljw  
 		 */
@@ -94,8 +102,8 @@ public class TeacherController {
 			List<Menu> list = menuMapper.findByParentId(id);
 			//统计每个文件夹下面的照片数量
 			for(int i=0;i<list.size();i++){
-				Integer counts=0;
-				if(list.get(i).getFolder().equals("1")){
+				if(list.get(i).getFolder().equals("1")){//文件夹时需要统计子节点数量
+					Integer counts=0;
 					Menu menu = menuMapper.findPidById(list.get(i).getId().toString());
 					ArrayList<Integer> idList = new ArrayList<Integer>();
 					HashMap<Integer, Menu> hashMap1 = new HashMap<Integer,Menu>();
@@ -107,8 +115,19 @@ public class TeacherController {
 							counts+=1;
 						}
 					}
+					list.get(i).setCounts(counts);
+				}else if(list.get(i).getFolder().equals("0")){//所有图片
+					if(StringUtils.isEmpty(list.get(i).getMinipath())){//缩略图是否为空
+						File file1 = new File(env.getProperty("virPath")+list.get(i).getImg());//这个等同于D:/picpath/"+list.get(i).getImg()
+						if(file1.exists()){
+							Thumbnails.of(env.getProperty("virPath")+list.get(i).getImg()).size(400,500).toFile(env.getProperty("minipath")+list.get(i).getImg());
+							Menu m1= list.get(i);
+							m1.setMinipath("/minipic"+m1.getImg());
+							menuMapper.updateByPrimaryKeySelective(m1);
+						}
+					}
+					list.get(i).setImg("/minipic"+list.get(i).getImg());
 				}
-				list.get(i).setCounts(counts);
 			}
 			PageInfo<Menu> pageInfo = new PageInfo<Menu>(list);
 			result.setData(pageInfo);

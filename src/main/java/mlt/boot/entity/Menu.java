@@ -29,6 +29,8 @@ public class Menu implements Serializable{
 	private String img;
 	private String description;
 	private String delflag;//0������  1����Ѿ�ɾ��
+	
+	private String minipath;
 	@Transient
 	private Integer counts;//����µ���Ƭ����
 	

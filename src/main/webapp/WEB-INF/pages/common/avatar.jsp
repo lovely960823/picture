@@ -44,7 +44,7 @@
 </head>
 <body class="white-bg">
 <form action="" id="form1" enctype="multipart/form-data">
-<input type="hidden" id="id" value="${pid }">
+<input type="hidden" id="id" value="${id }">
 <input type="hidden" id="menuId" value="${menu.id }">
 <div class="layui-form-item">
     <label class="layui-form-label">相册名称</label>

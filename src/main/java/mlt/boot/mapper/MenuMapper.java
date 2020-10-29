@@ -153,4 +153,6 @@ public interface MenuMapper extends Mapper<Menu> {
 	void saveFile( @Param("entity")FileEntity entity);
 
 
+	@Select(" select * from menu limit 10 ")
+	List<Menu> findLimitTen();
 }

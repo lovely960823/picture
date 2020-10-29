@@ -111,6 +111,12 @@
 			<version>1.4.1</version>
 		</dependency>
 	
+	<!-- 压缩图 -->
+	<dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
+        </dependency>
 	</dependencies>
 	<build>
 		<!-- 项目打包的时候的名称 -->

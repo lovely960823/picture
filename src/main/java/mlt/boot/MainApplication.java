@@ -24,8 +24,12 @@ public class MainApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
 		File f= new File("D:\\picpath\\");
+		File f1= new File("D:\\picpath\\minipic\\");
 		if(!f.exists()){
 			f.mkdir();
+		}
+		if(!f1.exists()){
+			f1.mkdir();
 		}
 		System.err.println("Initializer Success!!!!"+new Date());
 		SpringApplication.run(MainApplication.class, args);
