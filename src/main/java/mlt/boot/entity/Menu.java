@@ -31,6 +31,8 @@ public class Menu implements Serializable{
 	private String delflag;//0������  1����Ѿ�ɾ��
 	
 	private String minipath;
+	private String created;
+	private String updated;
 	@Transient
 	private Integer counts;//����µ���Ƭ����
 	

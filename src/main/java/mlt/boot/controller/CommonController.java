@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -185,6 +186,7 @@ public class CommonController {
 		menu1.setPId(id);
 		menu1.setName(name);
 		menu1.setImg("/"+newFileName);
+		menu1.setCreated(new Date().toLocaleString());
 		int i = menuMapper.insertSelective(menu1);
 		return 1;
 	}

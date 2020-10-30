@@ -80,8 +80,8 @@ public class TeacherController {
 			List<Menu> list = menuMapper.findByName(searchName);
 			//统计每个文件夹下面的照片数量
 			for(int i=0;i<list.size();i++){
-				Integer counts=0;
 				if(list.get(i).getFolder().equals("1")){
+					Integer counts=0;
 					Menu menu = menuMapper.findPidById(list.get(i).getId().toString());
 					ArrayList<Integer> idList = new ArrayList<Integer>();
 					HashMap<Integer, Menu> hashMap1 = new HashMap<Integer,Menu>();
@@ -93,8 +93,19 @@ public class TeacherController {
 							counts+=1;
 						}
 					}
+					list.get(i).setCounts(counts);
+				}else if(list.get(i).getFolder().equals("0")){//所有图片
+					if(StringUtils.isEmpty(list.get(i).getMinipath())){//缩略图是否为空
+						File file1 = new File(env.getProperty("virPath")+list.get(i).getImg());//这个等同于D:/picpath/"+list.get(i).getImg()
+						if(file1.exists()){
+							Thumbnails.of(env.getProperty("virPath")+list.get(i).getImg()).size(400,500).toFile(env.getProperty("minipath")+list.get(i).getImg());
+							Menu m1= list.get(i);
+							m1.setMinipath("/minipic"+m1.getImg());
+							menuMapper.updateByPrimaryKeySelective(m1);
+						}
+					}
+					list.get(i).setImg("/minipic"+list.get(i).getImg());
 				}
-				list.get(i).setCounts(counts);
 			}
 			PageInfo<Menu> pageInfo = new PageInfo<Menu>(list);
 			result.setData(pageInfo);
@@ -149,6 +160,9 @@ public class TeacherController {
 		Result<List<Menu>>  result = new Result<List<Menu>> ();
 			
 			List<Menu> list = menuMapper.trash();
+			list.forEach(menu->{
+				menu.setImg("/minipic"+menu.getImg());
+			});
 			result.setData(list);
 		return result;
 	}

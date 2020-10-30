@@ -241,7 +241,7 @@ function getDataLiu(){
 	                			img="/static/images/ic_morenshjipin.png";
 	                		}
 	                		result+='<li onmouseover="setSonId('+liu[i].id+')" >'
-	                		+'<a href="#" class="a2 a3" style="width:220px;height:257px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" title="'+liu[i].name+'">'
+	                		+'<a href="#" class="a2 a3" onclick="check('+liu[i].id+')" style="width:220px;height:257px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" title="'+liu[i].name+'">'
 	                		+'<div class="checkbox" style="z-index: 100;position: absolute;">'
 	                		+'<input type="checkbox" name="checkbox" onclick="check('+liu[i].id+')" id="checkbox'+liu[i].id+'" value="'+liu[i].id+'">'
 	                		+'</div>'
