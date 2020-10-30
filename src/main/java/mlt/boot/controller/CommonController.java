@@ -610,7 +610,13 @@ public class CommonController {
 			if(i>0){
 				String path = env.getProperty("virPath");
 				File f = new File(path+menu.getImg());
-				f.delete();
+				if(f.exists()){
+					f.delete();
+				}
+				File f1 = new File(env.getProperty("minipath")+menu.getImg());
+				if(f1.exists()){
+					f1.delete();
+				}
 			}else{
 				return Result.error("“"+menu.getName()+"” 删除失败，请刷新重试！！！");
 			}
