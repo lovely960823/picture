@@ -109,13 +109,13 @@ img {
 <div class="layui-carousel" id="test10">
   <div carousel-item="">
     <div>
-	    <img src="${pageContext.request.contextPath }/static/images/bm.jpg" onclick="toPage(2)" >
+	    <img src="${pageContext.request.contextPath }/static/images/index1.jpg" onclick="toPage(2)" >
     </div>
     <div>
-	    <img src="${pageContext.request.contextPath }/static/images/index21.png" onclick="toPage(3)" >
+	    <img src="${pageContext.request.contextPath }/static/images/index2.jpg" onclick="toPage(3)" >
     </div>
     <div>
-	    <img src="${pageContext.request.contextPath }/static/images/index31.png" onclick="toPage(4)" >
+	    <img src="${pageContext.request.contextPath }/static/images/index3.jpg" onclick="toPage(4)" >
     </div>
   </div>
 </div>
