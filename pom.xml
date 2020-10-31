@@ -117,6 +117,11 @@
             <artifactId>thumbnailator</artifactId>
             <version>0.4.8</version>
         </dependency>
+        <!-- Aop -->
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- 项目打包的时候的名称 -->

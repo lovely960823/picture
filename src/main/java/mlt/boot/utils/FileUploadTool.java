@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.multipart.MultipartFile;
 
+import mlt.boot.config.AppGetBean;
 import mlt.boot.entity.FileEntity;
 
 
@@ -43,12 +44,17 @@ public class FileUploadTool {
 	private static String[] allowFLV = { ".avi", ".mpg", ".wmv", ".3gp", ".mov", ".asf", ".asx", ".vob" };
 	// 允许的视频转码格式(mencoder)
 	private static String[] allowAVI = { ".wmv9", ".rm", ".rmvb" };
+	
+	private Environment getEnvironment(){
+		return (Environment) AppGetBean.getBean("environment");
+	}
 
 	public FileEntity createFile(String logoPathDir, MultipartFile multipartFile,String path, HttpServletRequest request) throws IOException {
+		
+		Environment env = getEnvironment();
 		FileEntity entity = new FileEntity();
 		boolean bflag = false;
 		String fileName = multipartFile.getOriginalFilename().toString();
-		System.out.println("文件全称：" + fileName + "~~~~~~~~~~~~~~");
 		// 判断文件不为空
 		if (multipartFile.getSize() != 0 && !multipartFile.isEmpty()) {
 			bflag = true;
@@ -74,7 +80,6 @@ public class FileUploadTool {
 			// String logoPathDir = "/video/";
 			//String logoRealPathDir = request.getSession().getServletContext().getRealPath(logoPathDir);
 			String logoRealPathDir = path+logoPathDir;
-			System.out.println("全路径不加项目名：" + logoRealPathDir + "*************************");
 			// 上传到本地磁盘
 			// String logoRealPathDir = "E:/upload";
 			File logoSaveFile = new File(logoRealPathDir);
@@ -82,16 +87,12 @@ public class FileUploadTool {
 				logoSaveFile.mkdirs();
 			}
 			String name = fileName.substring(0, fileName.lastIndexOf("."));
-			System.out.println("文件名称：" + name);
 			// 新的文件名
 			String newFileName = this.getName(name);
 			// 文件扩展名
 			String fileEnd = this.getFileExt(fileName);
 			// 绝对路径
 			String fileNamedirs = logoRealPathDir + File.separator + newFileName + fileEnd;
-			System.out.println("这是啥：fileEnd：" + fileEnd);
-			System.out.println("这是啥：File.separator：" + File.separator);
-			System.out.println("保存的绝对路径：" + fileNamedirs);
 			File filedirs = new File(fileNamedirs);
 			// 转入文件
 			try {
@@ -106,8 +107,6 @@ public class FileUploadTool {
 			// 相对路径
 			entity.setType(fileEnd);
 			String fileDir = logoPathDir +"/"+ newFileName + fileEnd;
-			/*StringBuilder builder = new StringBuilder(fileDir);
-			String finalFileDir = builder.substring(1);*/
 			// size存储为String
 			String size = this.getSize(filedirs);
 			// 源文件保存路径
@@ -126,7 +125,6 @@ public class FileUploadTool {
 				try {
 					ff = FFmpegFrameGrabber.createDefault(new File(aviPath));
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -143,7 +141,7 @@ public class FileUploadTool {
 			              pngPath = newFileName+".png";
 			              //执行截图并放入指定位置
 			              //System.out.println("存储图片 ： " + (dir + pngPath));
-			              weizhi = doExecuteFrame(f, "D://picpath//video//" + pngPath);
+			              weizhi = doExecuteFrame(f, env.getProperty("videoPath") + pngPath);
 			              break;
 			          }
 			          i++;
